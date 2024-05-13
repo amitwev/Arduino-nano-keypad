@@ -81,7 +81,7 @@ void setup() {
   Serial.begin(9600);
   //keyboard
   pinMode(KEYBOARD_PLAY, INPUT_PULLUP);
-  Keyboard.begin();
+  // Keyboard.begin();
   //
   pinMode(LCD_BACKLIGHT, OUTPUT);
   digitalWrite(LCD_BACKLIGHT, LOW);
@@ -175,11 +175,11 @@ void loop() {
   //
   int playState = digitalRead(KEYBOARD_PLAY);
   if(playState == LOW){
-    Serial.println("Button pressed!");
+    Serial.println("play");
     lcd.printStr(ALIGN_CENTER, 30, "Key PLAY YES press!");
     // Keyboard.write('z');
     // Keyboard.press(KEY_MEDIA_PLAY_PAUSE);
-    delay(50); // Debounce the button
+    delay(100); // Debounce the button
     // Keyboard.releaseAll(); // Release all keys
   } else{
     lcd.printStr(ALIGN_CENTER, 30, "key PLAY NOT press!");

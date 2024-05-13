@@ -137,22 +137,11 @@ void setup() {
   
   delay(2000);
 
-  // lcd.drawRectD(0, 0, 128, 64, 1);
-  // lcd.display();
 }
 
 void loop() {
   static int sday = 0;  // Saved day number for change check
-
-  // DateTime now = rtc.now();
-
-  // Serial.print("Hour: ");
-  // Serial.println(hour());
-  // Serial.print("Minute: ");
-  // Serial.println(minute());
-  // Serial.print("Second: ");
-  // Serial.println(second());
-  
+ 
   char timeStr[16];
   sprintf(timeStr, "%02d:%02d:%02d", hour(), minute(), second());
 
@@ -163,39 +152,15 @@ void loop() {
   lcd.printStr(ALIGN_CENTER, 10, timeStr);
   lcd.printStr(ALIGN_CENTER, 20, dateStr);
 
-
-  //
-  // Serial.print("day: ");
-  // Serial.println(day());
-  // Serial.print("Month: ");
-  // Serial.println(month());
-  // Serial.print("year: ");
-  // Serial.println(year());
-
-  //
   int playState = digitalRead(KEYBOARD_PLAY);
   if(playState == LOW){
     Serial.println("play");
     lcd.printStr(ALIGN_CENTER, 30, "Key PLAY YES press!");
-    // Keyboard.write('z');
-    // Keyboard.press(KEY_MEDIA_PLAY_PAUSE);
-    delay(100); // Debounce the button
-    // Keyboard.releaseAll(); // Release all keys
+    delay(100);
   } else{
     lcd.printStr(ALIGN_CENTER, 30, "key PLAY NOT press!");
   }
 
   lcd.display();
   delay(50);
-  // // Print current time to LCD
-  // char timeStr[16];
-  // sprintf(timeStr, "%02d:%02d:%02d", now.hour(), now.minute(), now.second());
-  // Serial.print("Time String: ");
-  // Serial.println(timeStr);
-
-  // lcd.cls();
-  // lcd.printStr(ALIGN_CENTER, 10, timeStr);
-  // lcd.display();
-
-  // delay(1000); // Update once per second
 }
